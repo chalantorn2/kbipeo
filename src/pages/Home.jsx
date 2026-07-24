@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import Icon from '../components/Icon'
 import NewsCard from '../components/NewsCard'
 import SectionHead from '../components/SectionHead'
+import InstallBanner from '../components/InstallBanner'
 
 const STATS = [
   { n: '27', l: 'โรงเรียนนำร่อง' },
@@ -69,21 +69,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Install app banner */}
-        <div className="flex items-center gap-3.5 flex-wrap bg-navy text-white rounded-2xl px-5 py-[18px] mt-8">
-          <div className="w-[42px] h-[42px] rounded-xl grid place-items-center shrink-0 bg-teal/20">
-            <Icon name="phone" className="w-[22px] h-[22px] text-teal" />
-          </div>
-          <div>
-            <b className="text-[15px]">ติดตั้งเป็นแอปบนมือถือได้</b>
-            <p className="text-[13px] text-white/75 mt-0.5">
-              เพิ่มลงหน้าจอหลัก เปิดใช้เหมือนแอป ไม่ต้องโหลดจาก Store
-            </p>
-          </div>
-          <button className="sm:ml-auto inline-flex items-center gap-2 font-semibold rounded-xl px-5 py-3 text-[15px] bg-teal text-[#05201d] hover:bg-teal-700 hover:text-white transition-colors">
-            ติดตั้งแอป
-          </button>
-        </div>
+        {/* Install app banner (PWA) */}
+        <InstallBanner />
       </div>
     </>
   )
