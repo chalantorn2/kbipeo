@@ -17,45 +17,48 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Top bar */}
-      <header className="sticky top-0 z-50 border-b border-line bg-surface/85 backdrop-blur-md backdrop-saturate-150">
-        <div className="max-w-[1120px] mx-auto px-5 h-16 flex items-center gap-5">
-          <Link to="/" className="flex items-center gap-3">
-            <Logo size={38} />
-            <div className="leading-tight">
-              <b className="block text-[15px] font-head font-bold text-ink">พื้นที่นวัตกรรมการศึกษา</b>
-              <span className="hidden sm:block font-mono text-[10.5px] tracking-[0.14em] uppercase text-muted">
-                Krabi · จังหวัดกระบี่
-              </span>
-            </div>
-          </Link>
+      <header className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md backdrop-saturate-150">
+        <div className="h-1 bg-teal" />
+        <div className="border-b border-line">
+          <div className="max-w-[1120px] mx-auto px-5 h-16 flex items-center gap-5">
+            <Link to="/" className="flex items-center gap-3">
+              <Logo size={38} />
+              <div className="leading-tight">
+                <b className="block text-[15px] font-head font-bold text-ink">พื้นที่นวัตกรรมการศึกษา</b>
+                <span className="hidden sm:block font-mono text-[10.5px] tracking-[0.14em] uppercase text-muted">
+                  Krabi · จังหวัดกระบี่
+                </span>
+              </div>
+            </Link>
 
-          <nav className="hidden md:flex gap-1 ml-auto">
-            {NAV.map((it) => (
-              <NavLink
-                key={it.to}
-                to={it.to}
-                end={it.end}
-                className={({ isActive }) =>
-                  `px-3.5 py-2 rounded-lg text-[14.5px] font-medium flex items-center gap-2 transition-colors ${
-                    isActive
-                      ? 'bg-sky text-blue-700 dark:text-blue font-bold'
-                      : 'text-muted hover:bg-sky hover:text-ink'
-                  }`
-                }
-              >
-                <Icon name={it.icon} />
-                {it.label}
-              </NavLink>
-            ))}
-          </nav>
+            <nav className="hidden md:flex gap-1 ml-auto h-16">
+              {NAV.map((it) => (
+                <NavLink
+                  key={it.to}
+                  to={it.to}
+                  end={it.end}
+                  className={({ isActive }) =>
+                    `relative px-3.5 text-[14.5px] font-medium flex items-center gap-2 transition-colors after:content-[''] after:absolute after:inset-x-2.5 after:-bottom-px after:h-[2.5px] after:rounded-full ${
+                      isActive
+                        ? 'text-navy dark:text-blue font-semibold after:bg-teal'
+                        : 'text-muted hover:text-ink after:bg-transparent'
+                    }`
+                  }
+                >
+                  <Icon name={it.icon} />
+                  {it.label}
+                </NavLink>
+              ))}
+            </nav>
 
-          <button
-            onClick={toggle}
-            aria-label="สลับธีมสว่าง/มืด"
-            className="md:ml-1.5 ml-auto w-[38px] h-[38px] rounded-lg border border-line bg-surface text-muted grid place-items-center hover:text-ink hover:border-blue transition-colors"
-          >
-            <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
-          </button>
+            <button
+              onClick={toggle}
+              aria-label="สลับธีมสว่าง/มืด"
+              className="md:ml-1.5 ml-auto w-[38px] h-[38px] rounded-lg border border-line bg-surface text-muted grid place-items-center hover:text-ink hover:border-blue transition-colors"
+            >
+              <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
+            </button>
+          </div>
         </div>
       </header>
 

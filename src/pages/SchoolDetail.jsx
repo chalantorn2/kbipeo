@@ -18,10 +18,9 @@ export default function SchoolDetail() {
   }
 
   const s = SCHOOLS[i]
-  const [c0, c1] = pal(i)
+  const [c0] = pal(i)
   const teachers = Math.max(6, Math.round(s.st / 16))
   const rooms = Math.max(8, Math.round(s.st / 22))
-  const grad = `linear-gradient(135deg, ${c0}, ${c1})`
 
   const stats = [
     { b: s.st.toLocaleString(), l: 'นักเรียน' },
@@ -49,12 +48,12 @@ export default function SchoolDetail() {
       {/* Profile hero */}
       <div className="rounded-[18px] overflow-hidden border border-line shadow-lg mt-3">
         <div className="relative h-[150px]" style={{ background: c0 }}>
-          <WavePattern from={c0} to={c1} id={`d${i}`} />
+          <WavePattern />
         </div>
         <div className="bg-surface px-6 pb-[22px] flex gap-[18px] items-end flex-wrap">
           <div
             className="w-[88px] h-[88px] rounded-[20px] -mt-11 grid place-items-center text-white font-extrabold text-[34px] font-head border-4 border-surface shrink-0"
-            style={{ background: grad }}
+            style={{ background: c0 }}
           >
             {initials(s.n)}
           </div>
@@ -104,12 +103,12 @@ export default function SchoolDetail() {
             <h3 className="text-base font-bold text-ink mb-3">ข่าวและกิจกรรมล่าสุด</h3>
             <div className="flex flex-col gap-3">
               {Array.from({ length: 3 }, (_, k) => {
-                const [p0, p1] = pal(i + k)
+                const [p0] = pal(i + k)
                 return (
                   <div key={k} className="flex gap-3">
                     <div
                       className="w-14 h-14 rounded-xl shrink-0"
-                      style={{ background: `linear-gradient(135deg, ${p0}, ${p1})` }}
+                      style={{ background: p0 }}
                     />
                     <div>
                       <div className="text-sm font-semibold leading-snug text-ink">

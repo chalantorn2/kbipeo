@@ -19,7 +19,7 @@ export default function MapView() {
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid slice"
             className="w-full h-full block"
-            style={{ background: 'linear-gradient(160deg, var(--color-sky), var(--color-surface))' }}
+            style={{ background: 'var(--color-sky)' }}
           >
             <path
               d="M18 20 Q30 12 46 18 Q62 24 70 16 Q84 22 82 40 Q86 58 74 68 Q66 84 48 82 Q30 86 22 70 Q10 58 16 40 Q14 28 18 20Z"
@@ -44,7 +44,7 @@ export default function MapView() {
         {/* List */}
         <div className="bg-surface border border-line rounded-2xl p-2 shadow-sm max-h-[420px] overflow-y-auto">
           {SCHOOLS.map((s, i) => {
-            const [c0, c1] = pal(i)
+            const [c0] = pal(i)
             return (
               <div
                 key={i}
@@ -53,7 +53,7 @@ export default function MapView() {
               >
                 <div
                   className="w-[26px] h-[26px] rounded-lg grid place-items-center text-white shrink-0"
-                  style={{ background: `linear-gradient(135deg, ${c0}, ${c1})` }}
+                  style={{ background: c0 }}
                 >
                   <Icon name="pin" className="w-3.5 h-3.5" />
                 </div>

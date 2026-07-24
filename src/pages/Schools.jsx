@@ -37,7 +37,7 @@ export default function Schools() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {list.map(({ s, i }) => {
-          const [c0, c1] = pal(i)
+          const [c0] = pal(i)
           return (
             <div
               key={i}
@@ -46,7 +46,7 @@ export default function Schools() {
             >
               <div
                 className="w-[52px] h-[52px] rounded-[13px] shrink-0 grid place-items-center text-white font-extrabold text-xl font-head"
-                style={{ background: `linear-gradient(135deg, ${c0}, ${c1})` }}
+                style={{ background: c0 }}
               >
                 {initials(s.n)}
               </div>

@@ -14,23 +14,38 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-700 to-blue-700 text-white">
-        <div
-          className="absolute -right-[10%] -top-[40%] w-3/5 h-[180%] pointer-events-none"
-          style={{ background: 'radial-gradient(closest-side, rgba(34,211,192,.35), transparent)' }}
-        />
-        <div className="relative max-w-[1120px] mx-auto px-5 pt-[52px] pb-14">
-          <span className="inline-flex items-center gap-2 font-mono text-[12.5px] tracking-[0.1em] uppercase text-teal-soft border border-white/20 px-3 py-1.5 rounded-full">
+      <section className="relative overflow-hidden bg-navy text-white border-b-4 border-teal">
+        {/* พื้นหลังลายจางๆ — grid + คลื่น teal */}
+        <div className="absolute inset-0 pointer-events-none text-teal" aria-hidden="true">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.07]" preserveAspectRatio="none">
+            <defs>
+              <pattern id="hero-grid" width="34" height="34" patternUnits="userSpaceOnUse">
+                <path d="M34 0H0V34" fill="none" stroke="currentColor" strokeWidth="1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+          </svg>
+          <svg
+            className="absolute -bottom-8 left-0 w-full h-40 opacity-[0.12]"
+            viewBox="0 0 1120 160"
+            preserveAspectRatio="none"
+          >
+            <path d="M0 120 Q280 60 560 110 T1120 90" fill="none" stroke="currentColor" strokeWidth="2" />
+            <path d="M0 150 Q280 90 560 140 T1120 120" fill="none" stroke="currentColor" strokeWidth="2" />
+          </svg>
+        </div>
+
+        <div className="relative max-w-[720px] mx-auto px-5 py-16 flex flex-col items-center text-center">
+          <span className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.12em] uppercase text-teal-soft border border-teal/40 rounded-full px-3.5 py-1.5">
             Education Innovation Area · กระบี่
           </span>
-          <h1 className="font-head font-extrabold text-[clamp(27px,4.6vw,42px)] leading-[1.16] mt-[18px] mb-3 text-balance max-w-[18ch]">
+          <h1 className="font-head font-extrabold text-[clamp(27px,4.6vw,42px)] leading-[1.18] mt-5 mb-4 text-balance">
             ศูนย์กลางข่าวสารและนวัตกรรม ของโรงเรียนนำร่องทั้งจังหวัด
           </h1>
-          <p className="text-[17px] text-white/80 max-w-[56ch] mb-6">
+          <p className="text-[16.5px] text-white/75 max-w-[52ch] mb-7">
             รวมข่าวกิจกรรม ผลงานนวัตกรรม และข้อมูลของโรงเรียนนำร่องทั้ง 27 แห่ง ไว้ในที่เดียว
-            ติดตามง่าย เข้าถึงได้ทุกอุปกรณ์
           </p>
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-3 flex-wrap justify-center">
             <Link
               to="/innovation"
               className="inline-flex items-center gap-2 font-semibold rounded-xl px-5 py-3 text-[15px] bg-teal text-[#05201d] hover:bg-teal-700 hover:text-white transition-colors"
@@ -44,18 +59,22 @@ export default function Home() {
               โรงเรียนนำร่อง 27 แห่ง
             </Link>
           </div>
-          <div className="flex gap-7 flex-wrap mt-8 pt-6 border-t border-white/15">
-            {STATS.map((s) => (
-              <div key={s.l}>
-                <b className="font-head text-[26px] font-extrabold tabular-nums">{s.n}</b>
-                <span className="block text-[12.5px] text-white/70">{s.l}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
       <div className="max-w-[1120px] mx-auto px-5">
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 -mt-7 mb-2 relative">
+          {STATS.map((s) => (
+            <div key={s.l} className="bg-surface border border-line rounded-2xl px-4 py-4 shadow-sm">
+              <b className="font-head text-[26px] font-extrabold tabular-nums text-navy dark:text-blue">
+                {s.n}
+              </b>
+              <span className="block text-[12.5px] text-muted">{s.l}</span>
+            </div>
+          ))}
+        </div>
+
         <SectionHead
           eyebrow="อัปเดตล่าสุด"
           title="ข่าวและกิจกรรมโรงเรียน"

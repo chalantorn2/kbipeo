@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate', // อัปเดต service worker อัตโนมัติเมื่อ deploy ใหม่
-      includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
+      includeAssets: ['logo.png', 'icons/apple-touch-icon.png'],
       manifest: {
         name: 'พื้นที่นวัตกรรมการศึกษา จังหวัดกระบี่',
         short_name: 'นวัตกรรมกระบี่',
