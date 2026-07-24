@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Toggle dark mode via .dark class on <html> (theme toggle button) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Noto Sans Thai", system-ui, "Segoe UI", Tahoma, sans-serif;
+  --font-head: "Prompt", "Noto Sans Thai", system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Consolas", monospace;
+
+  /* Brand — Krabi Education Innovation (CI) */
+  --color-navy: #10294A;
+  --color-navy-700: #1B3A5F;
+  --color-blue: #175CC4;
+  --color-blue-700: #0F4699;
+  --color-sky: #EAF1FB;
+  --color-teal: #0FB5A6;
+  --color-teal-700: #0C9488;
+  --color-teal-soft: #E4F7F4;
+
+  /* Semantic surfaces (light defaults; overridden in .dark below) */
+  --color-paper: #F6F8FC;
+  --color-surface: #FFFFFF;
+  --color-ink: #16202E;
+  --color-muted: #5C6B7E;
+  --color-line: #E1E7F0;
+}
+
+/* Dark theme token overrides */
+.dark {
+  --color-navy: #0B1B30;
+  --color-navy-700: #14345c;
+  --color-blue: #4C8DEE;
+  --color-blue-700: #2E6FD0;
+  --color-sky: #122540;
+  --color-teal: #22D3C0;
+  --color-teal-700: #14C4B4;
+  --color-teal-soft: #0E2E2C;
+  --color-paper: #0C1622;
+  --color-surface: #131F2E;
+  --color-ink: #E9EFF6;
+  --color-muted: #93A3B6;
+  --color-line: #243549;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-head); }
+
+/* hide scrollbar for horizontal chip rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
